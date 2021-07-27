@@ -170,7 +170,7 @@ class PororoBertZeroShot(PororoBiencoderBase):
                 tokens,
                 return_logits=True,
             )[:, [0, 2]]
-            prob = pred.softmax(dim=1)[:, 1].item() * 100
+            prob = pred.softmax(dim=1)[:, 0].item() * 100
             result[label] = round(prob, 2)
 
         return result
